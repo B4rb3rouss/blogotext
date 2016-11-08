@@ -17,7 +17,7 @@
 $GLOBALS['lang'] = array(
 'id'                                => 'en',
 // Install
-'install'                           => 'Installation',
+'install'                           => 'Install',
 'install_id'                        => 'Choose an username: ',
 'install_mdp'                       => 'Choose a password: ',
 'install_remdp'                     => 'Confirme your password: ',
@@ -261,7 +261,7 @@ $GLOBALS['lang'] = array(
 'err_minutes'                       => 'Minutes are incorrect',
 'err_secondes'                  => 'Seconds are incorrect',
 'err_file_write'                    => 'Impossible to create file',
-'err_theme_introuvable'             => 'Theme file is inreadable, not here or broken.',
+'err_theme_introuvable'             => 'Theme file is unreadable, not here or broken.',
 'err_prefs_write'                   => 'Impossible to write settings file',
 'err_prefs_auteur'              => 'Author name is empty',
 'err_prefs_email'                   => 'Email is incorrect',
