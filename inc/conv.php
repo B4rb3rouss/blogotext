@@ -158,6 +158,10 @@ function parse_texte_code($texte, $code_before)
 
 function markup_articles($texte)
 {
+    if ($GLOBALS['use_markdown']) {
+        require_once 'Parsedown.php';
+        $texte = Parsedown::instance()->text($texte); 
+    }
     $texte = preg_replace("/(\r\n|\r\n\r|\n|\n\r|\r)/", "\r", $texte);
     $tofind = array(
         // replace \r with \n when following HTML elements
@@ -242,6 +246,10 @@ function markup_articles($texte)
 
 function markup($texte)
 {
+    if ($GLOBALS['use_markdown']) {
+        require_once 'Parsedown.php';
+        $texte = Parsedown::instance()->text($texte); 
+    }
     $texte = preg_replace('#\[([^|]+)\|(\s*javascript.*)\]#i', '$1', $texte);
     $texte = preg_replace("/(\r\n|\r\n\r|\n|\n\r|\r)/", "\r", $texte);
     $tofind = array(

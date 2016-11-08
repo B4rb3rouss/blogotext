@@ -99,6 +99,7 @@ function fichier_prefs()
         $comm_defaut_status = htmlspecialchars($_POST['comm_defaut_status']);
         $automatic_keywords = (isset($_POST['auto_keywords'])) ? '1' : '0';
         $require_email = (isset($_POST['require_email'])) ? '1' : '0';
+        $use_markdown = (isset($_POST['use_markdown'])) ? '1' : '0';
         $auto_check_updates = (isset($_POST['check_update'])) ? '1' : '0';
         $auto_dl_liens_fichiers = htmlspecialchars($_POST['dl_link_to_files']);
         $nombre_liens_admin = htmlspecialchars($_POST['nb_list_linx']);
@@ -124,6 +125,7 @@ function fichier_prefs()
         $comm_defaut_status = '1';
         $automatic_keywords = '1';
         $require_email = '0';
+        $use_markdown = '0';
         $auto_check_updates = 1;
         $auto_dl_liens_fichiers = '0';
         $nombre_liens_admin = '50';
@@ -150,6 +152,7 @@ function fichier_prefs()
     $prefs .= "\$GLOBALS['comm_defaut_status']= '".$comm_defaut_status."';\n";
     $prefs .= "\$GLOBALS['automatic_keywords']= '".$automatic_keywords."';\n";
     $prefs .= "\$GLOBALS['require_email']= '".$require_email."';\n";
+    $prefs .= "\$GLOBALS['use_markdown']= '".$use_markdown."';\n";
     $prefs .= "\$GLOBALS['check_update']= '".$auto_check_updates."';\n";
     $prefs .= "\$GLOBALS['max_linx_admin']= '".$nombre_liens_admin."';\n";
     $prefs .= "\$GLOBALS['dl_link_to_files']= '".$auto_dl_liens_fichiers."';\n";

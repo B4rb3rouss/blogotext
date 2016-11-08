@@ -930,6 +930,10 @@ function afficher_form_prefs($erreurs = '')
         $fld_cfg_blog .= '</p>'."\n";
         $fld_cfg_blog .= '</div>'."\n";
 
+        $fld_cfg_blog .= '<p>'."\n";
+        $fld_cfg_blog .= form_checkbox('use_markdown', $GLOBALS['use_markdown'], $GLOBALS['lang']['pref_use_markdown']);
+        $fld_cfg_blog .= '</p>'."\n";
+
         $fld_cfg_blog .= $submit_box;
 
         $fld_cfg_blog .= '</div>';
