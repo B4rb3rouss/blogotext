@@ -14,6 +14,11 @@
 require_once 'inc/boot.php';
 
 // dependancy
+require_once BT_ROOT.'inc/conv.php';
+require_once BT_ROOT.'inc/hook.php';
+require_once BT_ROOT.'inc/sqli.php';
+require_once BT_ROOT.'inc/util.php';
+
 require_once BT_ROOT.'inc/addons.php';
 
 // launch addons

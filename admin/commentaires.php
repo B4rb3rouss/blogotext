@@ -12,6 +12,8 @@
 # *** LICENSE ***
 
 require_once 'inc/boot.php';
+require_once BT_ROOT.'inc/deps.php';
+
 
 
 $vars = array(

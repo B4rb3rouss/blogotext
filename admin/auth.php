@@ -13,6 +13,8 @@
 
 define('BT_RUN_LOGIN', 1);
 require_once 'inc/boot.php';
+require_once BT_ROOT.'inc/deps.php';
+
 
 
 /**

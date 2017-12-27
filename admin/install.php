@@ -17,6 +17,8 @@ $GLOBALS['lang'] = (in_array($lang, array('en', 'fr'))) ? $lang : 'fr';
 
 define('BT_RUN_INSTALL', 1);
 require_once 'inc/boot.php';
+require_once BT_ROOT.'inc/deps.php';
+
 
 // update ?
 if (is_file(DIR_CONFIG.'mysql.ini') || is_file(DIR_CONFIG.'prefs.php')) {

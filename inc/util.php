@@ -233,12 +233,6 @@ function protect($text)
     return htmlspecialchars(clean_txt($text));
 }
 
-// useless ?
-function lang_set_list()
-{
-    $GLOBALS['langs'] = array('fr' => 'Français', 'en' => 'English');
-}
-
 /**
  * load lang
  *
@@ -473,7 +467,6 @@ function send_emails($id_comment)
 
         $message .= "\r\n\r\n--" . $boundary . "--";
 
-=======
         $message = '<html>';
         $message .= '<head><title>'.$subject.'</title></head>';
         $message .= '<body><p>A new comment by <b>'.$comm_author.'</b> has been posted on <b>'.$article_title.'</b> form '.$GLOBALS['nom_du_site'].'.<br/>';
@@ -482,7 +475,6 @@ function send_emails($id_comment)
         $message .= '<p>To unsubscribe from the comments on all the posts, follow this link:<br/> <a href="'.$unsublink.'&amp;all=1">'.$unsublink.'&amp;all=1</a>.</p>';
         $message .= '<p>Also, do not reply to this email, since it is an automatic generated email.</p><p>Regards</p></body>';
         $message .= '</html>';
->>>>>>> fc1b95de2cb553f36950a0bbfd4beb859b2b15bc
         mail($mail, $subject, $message, $headers);
     }
     return true;
@@ -677,3 +669,8 @@ if (!function_exists('http_response_code')) {
         return $code;
     }
 }
+
+/**
+ * init lang
+ */
+lang_load_land(defined('IS_IN_ADMIN'));

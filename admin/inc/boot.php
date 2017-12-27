@@ -15,6 +15,7 @@ define('BT_ROOT_ADMIN', dirname(dirname(__file__)).'/');
 define('IS_IN_ADMIN', true);
 
 require_once '../inc/boot.php';
+require_once '../inc/deps.php';
 
 require_once BT_ROOT_ADMIN.'inc/auth.php'; // Security, dont move !
 require_once BT_ROOT_ADMIN.'inc/filesystem.php';

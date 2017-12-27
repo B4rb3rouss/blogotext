@@ -13,7 +13,8 @@
 
 require_once 'inc/boot.php';
 
-// dependancy
+// dependencies
+require_once BT_ROOT.'inc/deps.php';
 require_once BT_ROOT.'inc/addons.php';
 
 // launch addons

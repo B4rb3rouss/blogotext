@@ -12,6 +12,7 @@
 # *** LICENSE ***
 
 require_once 'inc/boot.php';
+require_once BT_ROOT.'inc/deps.php';
 
 
 $vars = array(
@@ -248,10 +249,10 @@ function display_files_list($arr)
 
     echo $out;
 }
-
 /**
  *  Traitment on one file (addition, modification and deletion).
  */
+
 function traitment_form_file($file)
 {
     global $vars;

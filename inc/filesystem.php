@@ -97,3 +97,4 @@ function flux_refresh_cache_lv1()
     $arr_l = liste_elements("SELECT * FROM links WHERE bt_statut=1 ORDER BY bt_id DESC LIMIT 0, 20", array(), 'links');
     return create_file_dtb(DIR_VHOST_CACHE.'cache1_feed.dat', array('c' => $arr_c, 'a' => $arr_a, 'l' => $arr_l));
 }
+
