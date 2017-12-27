@@ -200,6 +200,27 @@ function fichier_prefs()
     return (file_put_contents(FILE_SETTINGS, $prefs, LOCK_EX) !== false);
 }
 
+
+/**
+ * Optimize images
+ */
+function compress_image($source_image_path) {
+    $compressed_image = $source_image_path.'-temp';
+    $image_info = getimagesize($source_image_path);
+    if ($image_info['mime'] == 'image/jpeg') {
+        $source_image = imagecreatefromjpeg($source_image_path);
+        imageinterlace($source_image, true); // progressive
+        imagejpeg($source_image, $compressed_image, 60);
+    } elseif ($image_info['mime'] == 'image/gif') {
+        $source_image = imagecreatefromgif($source_image_path);
+        imagegif($source_image, $compressed_image, 60);
+    } elseif ($image_info['mime'] == 'image/png') {
+        $source_image = imagecreatefrompng($source_image_path);
+        imagepng($source_image, $compressed_image, 6);
+    }
+    rename($compressed_image, $source_image_path);
+}
+
 /**
  * TRAITEMENT DU FORMULAIRE DE FICHIER, CÔTÉ BDD
  * Retourne le $fichier de l’entrée (après avoir possiblement changé des trucs, par ex si le fichier existait déjà, l’id retourné change)
@@ -250,9 +271,15 @@ function bdd_file($fichier, $quoi, $comment, $sup_var)
         }
 
         // si fichier par POST ou par URL == OK, on l’ajoute à la base. (si pas OK, on serai déjà sorti par le else { redirection() }.
-        if ($fichier['bt_type'] == 'image') { // miniature si c’est une image
-            create_thumbnail($dossier.$dest);
-            list($fichier['bt_dim_w'], $fichier['bt_dim_h']) = getimagesize($dossier.$dest);
+        if ($fichier['bt_type'] == 'image') { 
+            // if GD library is not loaded by PHP, abord. 
+            if (extension_loaded('gd')) {
+                // compression
+                compress_image($dossier.$dest);
+                // miniature si c’est une image
+                create_thumbnail($dossier.$dest);
+                list($fichier['bt_dim_w'], $fichier['bt_dim_h']) = getimagesize($dossier.$dest);
+            }
         } // rm $path if not image
         else {
             $fichier['bt_path'] = '';
@@ -433,10 +460,6 @@ function chemin_thb_img_test($filepath)
  */
 function create_thumbnail($filepath)
 {
-    // if GD library is not loaded by PHP, abord. Thumbnails are not required.
-    if (!extension_loaded('gd')) {
-        return;
-    }
     $maxwidth = '700';
     $maxheight = '200';
     $ext = strtolower(pathinfo($filepath, PATHINFO_EXTENSION));
