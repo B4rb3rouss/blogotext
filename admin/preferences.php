@@ -231,7 +231,8 @@ function display_form_prefs($errors = '')
     echo '<form id="preferences" method="post" action="'.basename($_SERVER['SCRIPT_NAME']).'" >' ;
         echo erreurs($errors);
         $fieldsetUser = '<div role="group" class="pref">';
-        $fieldsetUser .= '<div class="form-legend"><legend class="legend-user">'.$GLOBALS['lang']['prefs_legend_user'].'</legend></div>';
+        $fieldsetUser .= '<details open>';
+        $fieldsetUser .= '<summary class="form-legend legend-user">'.$GLOBALS['lang']['prefs_legend_user'].'</summary>';
 
         $fieldsetUser .= '<div class="form-lines">';
         $fieldsetUser .= '<p>';
@@ -267,11 +268,13 @@ function display_form_prefs($errors = '')
 
         $fieldsetUser .= $submitBox;
 
+        $fieldsetUser .= '</details>';
         $fieldsetUser .= '</div>';
-    echo $fieldsetUser;
+        echo $fieldsetUser;
 
         $fieldsetSecurity = '<div role="group" class="pref">';
-        $fieldsetSecurity .= '<div class="form-legend"><legend class="legend-securite">'.$GLOBALS['lang']['prefs_legend_security'].'</legend></div>';
+        $fieldsetSecurity .= '<details>';
+        $fieldsetSecurity .= '<summary class="form-legend legend-securite">'.$GLOBALS['lang']['prefs_legend_security'].'</summary>';
 
         $fieldsetSecurity .= '<div class="form-lines">';
         $fieldsetSecurity .= '<p>';
@@ -292,11 +295,13 @@ function display_form_prefs($errors = '')
 
         $fieldsetSecurity .= $submitBox;
 
+        $fieldsetSecurity .= '</details>';
         $fieldsetSecurity .= '</div>';
     echo $fieldsetSecurity;
 
         $fieldsetAppearance = '<div role="group" class="pref">';
-        $fieldsetAppearance .= '<div class="form-legend"><legend class="legend-apparence">'.$GLOBALS['lang']['prefs_legend_appearance'].'</legend></div>';
+        $fieldsetAppearance .= '<details>';
+        $fieldsetAppearance .= '<summary class="form-legend legend-apparence">'.$GLOBALS['lang']['prefs_legend_appearance'].'</summary>';
 
         $fieldsetAppearance .= '<div class="form-lines">';
         $fieldsetAppearance .= '<p>';
@@ -327,11 +332,13 @@ function display_form_prefs($errors = '')
 
         $fieldsetAppearance .= $submitBox;
 
+        $fieldsetAppearance .= '</details>';
         $fieldsetAppearance .= '</div>';
     echo $fieldsetAppearance;
 
         $fieldsetDateHour = '<div role="group" class="pref">';
-        $fieldsetDateHour .= '<div class="form-legend"><legend class="legend-dateheure">'.$GLOBALS['lang']['prefs_legend_langdatehour'].'</legend></div>';
+        $fieldsetDateHour .= '<details>';
+        $fieldsetDateHour .= '<summary class="form-legend legend-dateheure">'.$GLOBALS['lang']['prefs_legend_langdatehour'].'</summary>';
 
         $fieldsetDateHour .= '<div class="form-lines">';
         $fieldsetDateHour .= '<p>';
@@ -353,11 +360,13 @@ function display_form_prefs($errors = '')
 
         $fieldsetDateHour .= $submitBox;
 
+        $fieldsetDateHour .= '</details>';
         $fieldsetDateHour .= '</div>';
     echo $fieldsetDateHour;
 
         $fieldsetParameters = '<div role="group" class="pref">';
-        $fieldsetParameters .= '<div class="form-legend"><legend class="legend-blogcomm">'.$GLOBALS['lang']['prefs_legend_configblog'].'</legend></div>';
+        $fieldsetParameters .= '<details>';
+        $fieldsetParameters .= '<summary class="form-legend legend-blogcomm">'.$GLOBALS['lang']['prefs_legend_configblog'].'</summary>';
 
         $fieldsetParameters .= '<div class="form-lines">';
         $fieldsetParameters .= '<p>';
@@ -387,12 +396,14 @@ function display_form_prefs($errors = '')
 
         $fieldsetParameters .= $submitBox;
 
+        $fieldsetParameters .= '</details>';
         $fieldsetParameters .= '</div>';
     echo $fieldsetParameters;
 
     if ($GLOBALS['afficher_liens']) {
         $fieldsetLinks = '<div role="group" class="pref">';
-        $fieldsetLinks .= '<div class="form-legend"><legend class="legend-links">'.$GLOBALS['lang']['prefs_legend_configlink'].'</legend></div>';
+        $fieldsetLinks .= '<details>';
+        $fieldsetLinks .= '<summary class="form-legend legend-links">'.$GLOBALS['lang']['prefs_legend_configlink'].'</summary>';
 
         $fieldsetLinks .= '<div class="form-lines">';
         // nb liens côté admin
@@ -419,6 +430,7 @@ function display_form_prefs($errors = '')
 
         $fieldsetLinks .= $submitBox;
 
+        $fieldsetLinks .= '</details>';
         $fieldsetLinks .= '</div>';
         echo $fieldsetLinks;
     } else {
@@ -428,7 +440,8 @@ function display_form_prefs($errors = '')
 
     if ($GLOBALS['afficher_rss']) {
         $fieldsetFeeds = '<div role="group" class="pref">';
-        $fieldsetFeeds .= '<div class="form-legend"><legend class="legend-rss">'.$GLOBALS['lang']['prefs_legend_configrss'].'</legend></div>';
+        $fieldsetFeeds .= '<details>';
+        $fieldsetFeeds .= '<summary class="form-legend legend-rss">'.$GLOBALS['lang']['prefs_legend_configrss'].'</summary>';
         $fieldsetFeeds .= '<div class="form-lines">';
 
         $nbs = array(10 => 10, 25 => 25, 50 => 50, 100 => 100, 300 => 300);
@@ -453,6 +466,7 @@ function display_form_prefs($errors = '')
         $fieldsetFeeds .= '</div>';
 
         $fieldsetFeeds .= $submitBox;
+        $fieldsetFeeds .= '</details>';
         $fieldsetFeeds .= '</div>';
         echo $fieldsetFeeds;
     } else {
@@ -460,7 +474,8 @@ function display_form_prefs($errors = '')
     }
 
     $fieldsetMaintenance = '<div role="group" class="pref">';
-    $fieldsetMaintenance .= '<div class="form-legend"><legend class="legend-sweep">'.$GLOBALS['lang']['title_maintenance'].'</legend></div>';
+    $fieldsetMaintenance .= '<details>';
+    $fieldsetMaintenance .= '<summary class="form-legend legend-sweep">'.$GLOBALS['lang']['title_maintenance'].'</summary>';
 
     $fieldsetMaintenance .= '<div class="form-lines">';
     $fieldsetMaintenance .= '<p>';
@@ -475,6 +490,7 @@ function display_form_prefs($errors = '')
 
     $fieldsetMaintenance .= $submitBox;
 
+    $fieldsetMaintenance .= '</details>';
     $fieldsetMaintenance .= '</div>';
     echo $fieldsetMaintenance;
 
